@@ -11,34 +11,33 @@
   <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
   <!-- TODO #1 - Use a loop to display job results in a table. -->
-  <th:block>
-    <table th:each="job : ${jobs}" class="job-listing">
-      <tr>
-        <td>ID</td>
-        <td th:text="${job.getId()}"></td>
-      </tr>
-      <tr>
-        <td>Name</td>
-        <td th:text="${job.getName()}"></td>
-      </tr>
-      <tr>
-        <td>Employer</td>
-        <td th:text="${job.getEmployer()}"></td>
-      </tr>
-      <tr>
-        <td>Location</td>
-        <td th:text="${job.getLocation()}"></td>
-      </tr>
-      <tr>
-        <td>Position Type</td>
-        <td th:text="${job.getPositionType()}"></td>
-      </tr>
-      <tr>
-        <td>Skill</td>
-        <td th:text="${job.getCoreCompetency()}"></td>
-      </tr>
-    </table>
-  </th:block>
+  <table th:each="job, iterStat : ${jobs}" class= "job-listing-container ">
+    <tr>
+      <th scope="row">ID</th>
+      <td th:text="${job.id}"></td>
+    </tr>
+    <tr>
+      <th>Job Name</th>
+      <td th:text="${job.name}"></td>
+    </tr>
+    <tr>
+      <th>Employer</th>
+      <td th:text="${job.employer.value}"></td>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <td th:text="${job.location.value}"></td>
+    </tr>
+    <tr>
+      <th>Position Type</th>
+      <td th:text="${job.positionType.value}"></td>
+    </tr>
+    <tr>
+      <th>Core Competency</th>
+      <td th:text="${job.coreCompetency.value}"></td>
+    </tr>
+  </table>
+
 </div>
 
 </body>
